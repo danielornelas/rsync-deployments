@@ -4,6 +4,7 @@ set -eu
 
 # Set deploy key
 SSH_PATH="$HOME/.ssh"
+if [ -d "$SSH_PATH" ]; then rm -Rf $SSH_PATH; fi
 mkdir "$SSH_PATH"
 echo "$DEPLOY_KEY" > "$SSH_PATH/deploy_key"
 chmod 600 "$SSH_PATH/deploy_key"

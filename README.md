@@ -1,6 +1,8 @@
 # rsync deployments
 
-This GitHub Action deploys *everything* in `GITHUB_WORKSPACE` to a folder on a server via rsync over ssh. 
+forked from contention/rsync-deployments
+
+This GitHub Action deploys *everything* in `GITHUB_WORKSPACE` to a folder on a server via rsync over ssh.
 
 This action would usually follow a build/test action which leaves deployable code in `GITHUB_WORKSPACE`.
 
@@ -30,11 +32,11 @@ action "Deploy to Staging" {
   uses = "contention/action-rsync-deploy@master"
   secrets = ["DEPLOY_KEY"]
   args = ["-avzr --delete", "--exclude .htaccess --exclude /uploads/", "user@server.com:/srv/myapp/public/htdocs/"]
-} 
+}
 ```
 
 ## Disclaimer
 
-If you're using GitHub Actions, you'll probably already know that it's still in limited public beta, and GitHub advise against using Actions in production. 
+If you're using GitHub Actions, you'll probably already know that it's still in limited public beta, and GitHub advise against using Actions in production.
 
 So, check your keys. Check your deployment paths. And use at your own risk.
